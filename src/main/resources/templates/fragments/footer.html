@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <footer th:fragment="footer" class="bg-dark text-white py-3 mt-auto">
+        <div class="container text-center">
+            <p class="mb-0">
+                &copy; <span th:text="${#dates.format(#dates.createNow(), 'yyyy')}"></span> Futbol Club. Todos los derechos reservados.
+                <strong>Jose  Villarreal, Fabian Parada</strong>
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
+

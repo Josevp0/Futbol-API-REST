@@ -1,0 +1,220 @@
+/* Estilos para formularios */
+
+/* Variables de color */
+:root {
+  --golden: #ffd700;
+  --golden-hover: #ffcc00;
+  --dark-bg: #000000;
+  --dark-bg-lighter: rgba(0, 0, 0, 0.75);
+  --primary-color: var(--golden);
+  --primary-hover: var(--golden-hover);
+  --secondary-color: #6c757d;
+  --secondary-hover: #5a6268;
+}
+
+body {
+  background: url('img/fondo2.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: #ffffff;
+  font-family: "Arial", sans-serif;
+  min-height: 100vh;
+}
+
+/* Contenedor de formulario */
+.card {
+  background: var(--dark-bg-lighter);
+  border: none;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  margin-bottom: 2rem;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+}
+
+/* Encabezado de tarjeta */
+.card-header {
+  background-color: var(--dark-bg);
+  color: var(--golden);
+  border-bottom: 2px solid var(--golden);
+  padding: 1rem 1.5rem;
+}
+
+.card-header h2 {
+  margin-bottom: 0;
+  font-size: 1.8rem;
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* Cuerpo de tarjeta */
+.card-body {
+  padding: 2rem;
+}
+
+/* Etiquetas de formulario */
+.form-label {
+  color: var(--golden);
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+}
+
+/* Campos de formulario */
+.form-control,
+.form-select {
+  background-color: rgba(0, 0, 0, 0.85);
+  border: 1px solid var(--golden);
+  color: #ffffff;
+  border-radius: 5px;
+  padding: 0.6rem 1rem;
+  transition: all 0.3s ease;
+}
+
+.form-control:focus,
+.form-select:focus {
+  background-color: rgba(0, 0, 0, 0.9);
+  border-color: #ffffff;
+  box-shadow: 0 0 5px rgba(255, 215, 0, 0.7);
+  color: #ffffff;
+}
+
+/* Select múltiple */
+select[multiple].form-select {
+  height: auto;
+  min-height: 120px;
+}
+
+/* Texto de ayuda */
+.form-text {
+  color: #cccccc !important;
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+}
+
+/* Botones de formulario */
+.btn {
+  font-weight: bold;
+  padding: 0.6rem 1.5rem;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 0.9rem;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Botón primario (guardar) */
+.btn-primary {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  color: #000000;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-hover);
+  border-color: var(--primary-hover);
+  color: #000000;
+}
+
+/* Botón secundario (volver) */
+.btn-secondary {
+  background-color: var(--secondary-color);
+  border-color: var(--secondary-color);
+}
+
+.btn-secondary:hover {
+  background-color: var(--secondary-hover);
+  border-color: var(--secondary-hover);
+}
+
+/* Espaciado entre botones */
+.d-flex.gap-2 {
+  gap: 1rem !important;
+}
+
+/* Iconos */
+.fas {
+  transition: transform 0.3s ease;
+}
+
+.btn:hover .fas {
+  transform: translateX(-2px);
+}
+
+.btn-primary:hover .fa-save {
+  transform: scale(1.2);
+}
+
+/* Validación de formularios */
+.form-control.is-invalid,
+.form-select.is-invalid {
+  border-color: #dc3545;
+  background-image: none;
+}
+
+.form-control.is-valid,
+.form-select.is-valid {
+  border-color: #28a745;
+  background-image: none;
+}
+
+.invalid-feedback {
+  color: #ff6b6b;
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .card-header h2 {
+    font-size: 1.5rem;
+  }
+  
+  .card-body {
+    padding: 1.5rem;
+  }
+  
+  .form-label {
+    font-size: 0.9rem;
+  }
+  
+  .d-flex.gap-2 {
+    flex-direction: column;
+    gap: 0.5rem !important;
+  }
+  
+  .d-flex.gap-2 .btn {
+    width: 100%;
+  }
+  
+  .card {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+  }
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.card {
+  animation: fadeIn 0.5s ease-out forwards;
+}

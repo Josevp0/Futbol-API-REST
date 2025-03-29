@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario Asociación - Futbol Club</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" th:href="@{/css/form-styles.css}">
+</head>
+<body class="d-flex flex-column min-vh-100">
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="/">
+                    <i class="fas fa-futbol me-2"></i>
+                    Futbol Club
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/entrenadores">Entrenadores</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/asociaciones">Asociaciones</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/competiciones">Competiciones</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/clubes">Clubes</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/jugadores">Jugadores</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container my-4 flex-grow-1">
+        <div class="card">
+            <div class="card-header">
+                <h2 th:text="${esNuevo} ? 'Nueva Asociación' : 'Editar Asociación'"></h2>
+            </div>
+            <div class="card-body">
+                <!-- Añadir información de depuración -->
+                <div class="alert alert-info" role="alert">
+                    <p>Modo: <strong th:text="${esNuevo} ? 'Creación' : 'Edición'"></strong></p>
+                    <p th:if="${!esNuevo}">ID: <strong th:text="${asociacion.id}"></strong></p>
+                </div>
+                
+                <form th:action="@{/asociaciones/guardar}" method="post">
+                    <!-- Siempre incluir el ID, pero será nulo para nuevos registros -->
+                    <input type="hidden" name="id" th:value="${asociacion.id}" />
+                    
+                    <!-- Parámetro para indicar si es nuevo o edición -->
+                    <input type="hidden" name="esNuevo" th:value="${esNuevo}" />
+
+                    <div class="mb-3">
+                        <label for="nombre" class="form-label">Nombre</label>
+                        <input type="text" class="form-control" id="nombre" name="nombre" th:value="${asociacion.nombre}" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="pais" class="form-label">País</label>
+                        <input type="text" class="form-control" id="pais" name="pais" th:value="${asociacion.pais}" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="presidente" class="form-label">Presidente</label>
+                        <input type="text" class="form-control" id="presidente" name="presidente" th:value="${asociacion.presidente}" required>
+                    </div>
+
+                    <div class="d-flex gap-2">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-save me-2"></i>Guardar
+                        </button>
+                        <a th:href="@{/asociaciones}" class="btn btn-secondary">
+                            <i class="fas fa-arrow-left me-2"></i>Volver
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-dark text-white py-3 mt-auto">
+        <div class="container text-center">
+            <p class="mb-0">
+                &copy; <span th:text="${#dates.format(#dates.createNow(), 'yyyy')}"></span> Futbol Club. Todos los derechos reservados.
+                <strong>Jose Manuel Villarreal Parada</strong>
+            </p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+

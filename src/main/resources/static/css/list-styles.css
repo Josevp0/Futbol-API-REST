@@ -1,0 +1,234 @@
+/* Estilos para listas y tablas */
+
+/* Variables de color */
+:root {
+  --golden: #ffd700;
+  --golden-hover: #ffcc00;
+  --dark-bg: #000000;
+  --dark-bg-lighter: rgba(0, 0, 0, 0.75);
+  --warning-color: #ffc107;
+  --warning-hover: #e0a800;
+  --danger-color: #dc3545;
+  --danger-hover: #bd2130;
+  --success-color: var(--golden);
+  --success-hover: var(--golden-hover);
+}
+
+body {
+  background: url('img/fondo2.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: #ffffff;
+  font-family: "Arial", sans-serif;
+  min-height: 100vh;
+}
+
+/* Encabezados de página */
+h1.text-primary {
+  color: var(--golden) !important;
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+  letter-spacing: 1px;
+}
+
+/* Contenedor de tabla */
+.card {
+  background: var(--dark-bg-lighter);
+  border: none;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  margin-bottom: 2rem;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+}
+
+/* Estilos de tabla */
+.table {
+  color: #ffffff;
+  margin-bottom: 0;
+}
+
+.table-dark th {
+  background-color: var(--dark-bg);
+  color: var(--golden);
+  border-bottom: 2px solid var(--golden);
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  padding: 15px !important;
+}
+
+.table-hover tbody tr:hover {
+  background-color: rgba(255, 215, 0, 0.1) !important;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.table-striped tbody tr:nth-of-type(even) {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.table td {
+  padding: 12px !important;
+  vertical-align: middle;
+}
+
+/* Mensaje de tabla vacía */
+.table td[colspan] {
+  padding: 20px !important;
+  font-style: italic;
+  color: #cccccc;
+}
+
+/* Botones de acción */
+.btn-group .btn {
+  border-radius: 5px;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 0.5px;
+  padding: 0.4rem 0.8rem;
+  transition: all 0.3s ease;
+}
+
+.btn-group .btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Botón de nuevo */
+.btn-success {
+  background-color: var(--success-color);
+  border-color: var(--success-color);
+  color: #000000;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.btn-success:hover {
+  background-color: var(--success-hover);
+  border-color: var(--success-hover);
+  color: #000000;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Botón de editar */
+.btn-warning {
+  background-color: var(--warning-color);
+  border-color: var(--warning-color);
+  color: #000000;
+}
+
+.btn-warning:hover {
+  background-color: var(--warning-hover);
+  border-color: var(--warning-hover);
+  color: #000000;
+}
+
+/* Botón de eliminar */
+.btn-danger {
+  background-color: var(--danger-color);
+  border-color: var(--danger-color);
+}
+
+.btn-danger:hover {
+  background-color: var(--danger-hover);
+  border-color: var(--danger-hover);
+}
+
+/* Botón dorado (volver) */
+.btn-golden {
+  background-color: var(--golden);
+  border-color: var(--golden);
+  color: #000000;
+  font-weight: bold;
+  padding: 0.5rem 1.5rem;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.btn-golden:hover {
+  background-color: var(--golden-hover);
+  border-color: var(--golden-hover);
+  color: #000000;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Listas dentro de tablas */
+.table ul.list-unstyled {
+  margin: 0;
+  padding: 0;
+}
+
+.table ul.list-unstyled li {
+  padding: 2px 0;
+  font-size: 0.9rem;
+}
+
+/* Iconos */
+.fas {
+  transition: transform 0.3s ease;
+}
+
+.btn:hover .fas {
+  transform: translateX(-2px);
+}
+
+.btn-success:hover .fa-plus,
+.btn-golden:hover .fa-home {
+  transform: scale(1.2);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  h1.text-primary {
+    font-size: 1.8rem;
+  }
+  
+  .table th, .table td {
+    padding: 10px 8px !important;
+  }
+  
+  .btn-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .btn-group .btn {
+    width: 100%;
+    margin: 0 !important;
+  }
+  
+  .card {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+  }
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.card {
+  animation: fadeIn 0.5s ease-out forwards;
+}
